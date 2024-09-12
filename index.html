@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section class="rightcolum"></section>
     <section class="box">
         <header>
             <div class="cabecalho">
                 <div class="nome"><p>Grupo de Estudos - AGES</p></div>
-                <div class="pucrs"><p>PUCRS</p></div>
+                <img class=pucrs src="45121ad6-5ded-4766-bf78-485c7352ae12.png" alt="Logo PUCRS"></div>
             </div>
         </header>
 
@@ -26,14 +27,14 @@
         <section class="conversor">
             <div class="entrada">
                 <div>
-                    <h2>Voçê tem: </h2>
+                    <h2 onclick="converter()">Você tem: </h2>
                     <input id="quantidade" class="input" type="number" value="0.00">
 
                     <div class="linha">
                         <span></span>
                     </div>
                 </div>
-
+                    
                 <div class="opcoes">
                     <select class=select id="moeda-base"></select>
                     
@@ -42,11 +43,11 @@
                     </div>
 
                 </div>
+                    <div class="tranformacao"></div>
                 <div class="taxas">
                     <p>Taxas de conversão serão recarregadas em 30s</p>
                 </div>
             </div>
-
             <div class="saida">
                 <div>
                     <h2>Voçê recebe: </h2>

@@ -5,6 +5,8 @@ const conv = document.getElementById("moeda-conv");
 const quantidade = document.getElementById("quantidade");
 const conversao = document.getElementById("conversao");
 
+
+
 moedas.forEach((moeda)=>{
     const escolha = document.createElement("option");
     escolha.value = moeda;
@@ -20,26 +22,31 @@ moedas.forEach((moeda)=>{
 })
 
 async function teste(coin, coin2, quantia) {
-    try {
-        const resposta = await fetch(url+`latest?from=${coin}&to=${coin2}`);
+    if(coin===coin2){
+        const valor = Number(quantia);
+        conversao.value = valor.toFixed(2);
+    } else{
+        try {
+            const resposta = await fetch(url+`latest?from=${coin}&to=${coin2}`);
+        
+            const dados = await resposta.json();
+            console.log(dados);
+            
+            
+            if(resposta.status!=200){
+                throw resposta.status;
+            }
     
-        const dados = await resposta.json();
-        console.log(dados);
+            const sum = (dados.rates[coin2])*quantia;
+    
+            console.log(sum);
+            conversao.value = sum.toFixed(2);
+            
+            
         
-        
-        if(resposta.status!=200){
-            throw resposta.status;
+        } catch (error){
+            console.log('erro de conexao: '+error);
         }
-
-        const sum = (dados.rates[coin2])*quantia;
-
-        console.log(sum);
-        conversao.value = sum;
-        
-        
-    
-    } catch (error){
-        console.log('erro de conexao: '+error);
     }
     
 } 
@@ -61,6 +68,7 @@ fetch(url+"currencies")
     .then((data) => {
         console.log(data);
     });
+
 
 
 
