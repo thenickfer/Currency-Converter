@@ -1,21 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Conversora de moedas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section class="box">
+        <header>
+            <div class="cabecalho">
+                <div class="nome"><p>Grupo de Estudos - AGES</p></div>
+                <div class="pucrs"><p>PUCRS</p></div>
+            </div>
+        </header>
 
-    <label for="quantidade">Quantia:</label>
-    <input type="number" id="quantidade" onclick="converter()">
+        <section class="escritas">
+            <div class="frase"><h1>Converta moedas de forma rápida e precisa com as melhores taxas em tempo real!</h1></div>
+            <div class="info">
+                <p>Data</p>
+                <p>Horario</p>
+            </div>
+        </section>
 
-    <div class="dropdown">
-        <select id="moeda-base"></select>
-        <select id="moeda-conv"></select>
-    </div>
+        <section class="conversor">
+            <div class="entrada">
+                <div>
+                    <h2>Voçê tem: </h2>
+                    <input id="quantidade" class="input" type="number" value="0.00">
+
+                    <div class="linha">
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="opcoes">
+                    <select class=select id="moeda-base"></select>
+                    
+                    <div class="linha">
+                        <span></span>   
+                    </div>
+
+                </div>
+                <div class="taxas">
+                    <p>Taxas de conversão serão recarregadas em 30s</p>
+                </div>
+            </div>
+
+            <div class="saida">
+                <div>
+                    <h2>Voçê recebe: </h2>
+                    <input id="conversao" class="input" type="number" value="0.00">
+                    
+                    <div class="linha">
+                        <span></span>
+                    </div>
+
+                    <div>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="opcoes">
+                    <select class="select" id="moeda-conv"></select>
+
+                    <div class="linha">
+                        <span></span>
+                    </div>
+
+                </div>
+                    <div class="taxas">
+                        <p>1EUR = 6BRL</p>
+                    </div>
+            </div>
+
+        </section>
+
+        <section class="valorizacao">
+            <div>
+                <p>BRL/USD</p>
+                <p>+0.92%</p>
+            </div>
+            <div>
+                <p>BRL/USD</p>
+                <p>+0.92%</p>
+            </div>
+            <div>
+                <p>BRL/USD</p>
+                <p>+0.92%</p>
+            </div>
+            <div>
+                <p>BRL/USD</p>
+                <p>+0.92%</p>
+            </div>
+            <div>
+                <p>BRL/USD</p>
+                <p>+0.92%</p>
+            </div>
+            <div>
+                <p>BRL/USD</p>
+                <p>+0.92%</p>
+            </div>
+            <div>
+                <p>BRL/USD</p>
+                <p>+0.92%</p>
+            </div>
+            <div>
+                <p>BRL/USD</p>
+                <p>+0.92%</p>
+            </div>
+            <div>
+                <p>BRL/USD</p>
+                <p>+0.92%</p>
+            </div>
+        </section>
+    </section>
 
     <script src="arrayMoedas.js"></script>
     <script src="scriptNovaApi.js"></script>
+
 </body>
 </html>
