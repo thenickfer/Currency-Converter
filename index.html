@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="rightcolum"></section>
+
     <section class="box">
         <header>
             <div class="cabecalho">
@@ -19,8 +19,8 @@
         <section class="escritas">
             <div class="frase"><h1>Converta moedas de forma rápida e precisa com as melhores taxas em tempo real!</h1></div>
             <div class="info">
-                <p>Data</p>
-                <p>Horario</p>
+                <p id="data"></p>
+                <p id="horario"></p>
             </div>
         </section>
 
@@ -43,23 +43,22 @@
                     </div>
 
                 </div>
-                    <div class="tranformacao"></div>
                 <div class="taxas">
                     <p>Taxas de conversão serão recarregadas em 30s</p>
                 </div>
             </div>
+          <img class="botao" onclick="troca()" src="./conversor.svg">
             <div class="saida">
                 <div>
                     <h2>Voçê recebe: </h2>
-                    <input id="conversao" class="input" type="number" value="0.00">
+                    <input id="conversao" class="input" type="number" value="0.00" disabled>
                     
                     <div class="linha">
                         <span></span>
                     </div>
+                    
 
-                    <div>
-                        <p></p>
-                    </div>
+                    
                 </div>
 
                 <div class="opcoes">
@@ -70,9 +69,9 @@
                     </div>
 
                 </div>
-                    <div class="taxas">
-                        <p>1EUR = 6BRL</p>
-                    </div>
+                <div class="taxas" id="rates">
+                    <p>1EUR = 6BRL</p>
+                </div>
             </div>
 
         </section>
