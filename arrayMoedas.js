@@ -31,3 +31,11 @@ const moedas = [
 , 'USD'
 , 'ZAR' 
 ]
+
+/* const bandeiras = [
+  'AU',
+  'BG',
+  'BR',
+  'CA',
+
+] */
