@@ -4,6 +4,7 @@ const base = document.getElementById("moeda-base");
 const conv = document.getElementById("moeda-conv");
 const quantidade = document.getElementById("quantidade");
 const conversao = document.getElementById("conversao");
+const grafico = document.getElementById("grafico");
 
 function dataHora(){
     const dataAtual = new Date();
@@ -16,8 +17,18 @@ function dataHora(){
 
 setInterval(dataHora, 1000);
 
+function montaGraf(moedab, moeda2){
+    for(i=0;i<360;i++){
+        let sla = Math.random()*100;
+        const barra = document.createElement("div");
+        barra.className = "barra";
+        barra.style.height = `${sla}%`;
+        //barra.style.marginTop = `${temp}%`;
+        grafico.appendChild(barra);
+    }
+}
 
-
+montaGraf('sla', 'sla');
 
 moedas.forEach((moeda)=>{
     const escolha = document.createElement("option");
@@ -154,9 +165,3 @@ function troca(){
 }
 
 
-/* function historicoMoedas(){
-    let valorAtual,valorAnterior, valorAnterior1, valorAnterior2, valorAnterior3, valorAnterior4,valorAnterior5,valorAnterior6,valorAnterior7;
-    historico[valorAtual,valorAnterior, valorAnterior1, valorAnterior2, valorAnterior3, valorAnterior4,valorAnterior5,valorAnterior6,valorAnterior7;];
-    hitorico
-    
-} */
