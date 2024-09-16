@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -216,11 +217,12 @@ input[type=number] {
     border: 1px hidden white;
     border-radius: 5px;
     display: grid;
-    /* grid-template-columns: repeat(30, 3.33%); */
-    grid-template-columns: repeat(360, 0.2778%);
+    grid-template-columns: repeat(7, 10%);
+    /* grid-template-columns: repeat(360, 0.2778%); */
 }
 .barra{
     /* height: 100%; */
     width: 100%;
     background-color: #FFD65B;
+
 }
