@@ -17,18 +17,70 @@ function dataHora(){
 
 setInterval(dataHora, 1000);
 
-function montaGraf(moedab, moeda2){
-    for(i=0;i<360;i++){
-        let sla = Math.random()*100;
+async function montaGraf(moedab, moeda2, duracao){
+    /* const date = new Date();
+    const dia = date.getDate(); 
+    const mes = date.getMonth()+1;
+    const ano = date.getFullYear();
+    const anoAnt = ano-1;
+    console.log(dia);
+    console.log(mes);
+    console.log(ano);
+    console.log(anoAnt);
+
+    let nDias = 365;
+    if((parseInt(ano)%100==0&&parseInt(ano)%400==0)||(parseInt(anoAnt)%100==0&&parseInt(anoAnt)%400==0&&mes<=2)){
+        nDias=366;
+    } */
+
+    const arr = new Array(duracao);
+    const percent = 100/duracao;
+    grafico.style.gridTemplateColumns = `repeat(${duracao}, ${percent.toFixed(4)-0.0001}%)`;
+
+    try {
+        const resposta = await fetch("https://economia.awesomeapi.com.br/json/daily/"+`${moedab}-${moeda2}/${duracao}`);
+    
+        const dados = await resposta.json();
+        console.log(dados);
+        
+        
+        if(resposta.status!=200){
+            throw resposta.status;
+        }
+        let index = arr.length-1;
+        let temMaior = false;
+        dados.forEach((dia) => {
+            const bid = dia.bid;
+            arr[index]=bid*100;
+            index--;
+        })
+        let count = 0;
+        
+
+        for(i=0;i<arr.length;i++){
+            const barra = document.createElement("div");
+            barra.className = "barra";
+            barra.style.height = `${arr[i]}%`;
+            grafico.appendChild(barra);
+        }
+
+        console.log(arr);
+       
+    
+    } catch (error){
+        console.log('erro de conexao: '+error);
+    }
+
+
+    /* for(i=0;i<nDias;i++){
         const barra = document.createElement("div");
         barra.className = "barra";
-        barra.style.height = `${sla}%`;
-        //barra.style.marginTop = `${temp}%`;
+        barra.style.height = `10%`;
         grafico.appendChild(barra);
-    }
+    } */
 }
 
-montaGraf('sla', 'sla');
+
 
 moedas.forEach((moeda)=>{
     const escolha = document.createElement("option");
@@ -122,6 +174,7 @@ function converter(){
     const convNum = conv.value;
     const quant = quantidade.value;
     teste(baseNum, convNum, quant);
+    montaGraf(base.value, conv.value, 360);
 
 }
 
