@@ -49,15 +49,21 @@ async function montaGraf(moedab, moeda2, duracao){
         }
         let index = arr.length-1;
         let temMaior = false;
+        let soma = 0;
         dados.forEach((dia) => {
             const bid = dia.bid;
-            arr[index]=bid*100;
+            if(bid>0){
+                arr[index]=bid*100;
+            }
+            soma+=arr[index];
             index--;
         })
+        console.log(arr);
         let count = 0;
         
         grafico.innerHTML = '';
         for(i=0;i<arr.length;i++){
+            
             const barra = document.createElement("div");
             barra.className = "barra";
             barra.style.height = `${arr[i]}%`;
