@@ -56,7 +56,7 @@ async function montaGraf(moedab, moeda2, duracao){
         })
         let count = 0;
         
-
+        grafico.innerHTML = '';
         for(i=0;i<arr.length;i++){
             const barra = document.createElement("div");
             barra.className = "barra";
