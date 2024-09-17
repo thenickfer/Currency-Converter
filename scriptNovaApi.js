@@ -199,7 +199,7 @@ function convInsta(){
     if(quantidade.value<0){
         quantidade.value = 0;
     } else if(truncar2pos(Number(quantidade.value))<Number(quantidade.value).toFixed(3)) {
-        quantidade.value = truncar2pos(Number(quantidade.value));
+        //quantidade.value = truncar2pos(Number(quantidade.value));
     } 
 
     const baseNum = base.value;
