@@ -17,7 +17,7 @@ function dataHora(){
 
 setInterval(dataHora, 1000);
 
-async function montaGraf(moedab, moeda2, duracao){
+async function montaGraf(){
     /* const date = new Date();
     const dia = date.getDate(); 
     const mes = date.getMonth()+1;
@@ -32,6 +32,11 @@ async function montaGraf(moedab, moeda2, duracao){
     if((parseInt(ano)%100==0&&parseInt(ano)%400==0)||(parseInt(anoAnt)%100==0&&parseInt(anoAnt)%400==0&&mes<=2)){
         nDias=366;
     } */
+
+    const moedab = base.value;
+    const moeda2 = conv.value;
+    const duracao = Number(document.getElementById("selectGraph").value);
+    console.log(`${moedab};${moeda2};${duracao}`);
 
     const arr = new Array(duracao);
     const percent = 100/duracao;
@@ -49,7 +54,6 @@ async function montaGraf(moedab, moeda2, duracao){
             throw resposta.status;
         }
         let index = arr.length-1;
-        let temMaior = false;
         dados.forEach((dia) => {
             const bid = dia.bid;
             if(bid>0){
@@ -61,7 +65,6 @@ async function montaGraf(moedab, moeda2, duracao){
             index--;
         })
         console.log(arr);
-        let count = 0;
         
         grafico.innerHTML = '';
         for(i=0;i<arr.length;i++){
@@ -185,7 +188,7 @@ function converter(){
     const convNum = conv.value;
     const quant = quantidade.value;
     teste(baseNum, convNum, quant);
-    montaGraf(base.value, conv.value, 360);
+   
 
 }
 

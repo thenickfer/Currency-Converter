@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,15 +9,13 @@
 <body>
 
     <section class="box">
-        <header>
-            <div class="cabecalho">
-                <div class="nome"><p>Grupo de Estudos - AGES</p></div>
-                <img class=pucrs src="45121ad6-5ded-4766-bf78-485c7352ae12.png" alt="Logo PUCRS"></div>
-            </div>
+        <header class="cabecalho">
+            <div class="nome"><p>Grupo de Estudos - AGES</p></div>
+            <img class=pucrs src="45121ad6-5ded-4766-bf78-485c7352ae12.png" alt="Logo PUCRS"></div>
         </header>
 
         <section class="escritas">
-            <div class="frase"><h1>Converta moedas de forma rápida e precisa com as melhores taxas em tempo real!</h1></div>
+            <h1 class="frase">Converta moedas de forma rápida e precisa com as melhores taxas em tempo real!</h1>
             <div class="info">
                 <p id="data"></p>
                 <p id="horario"></p>
@@ -26,107 +23,64 @@
         </section>
 
         <section class="conversor">
-            <div class="entrada">
-                <div>
-                    <h2>Você tem: </h2>
-                    <input id="quantidade" class="input" oninput="convInsta()" type="number" value="0.00">
 
-                    <div class="linha">
-                        <span></span>
-                    </div>
-                </div>
-                    
-                <div class="opcoes">
-                    <div class="resposta">
-                        <img class="flag" id="flaginp" src="https://flagsapi.com/BR/flat/64.png">
-                        <select onclick="changeF('flaginp'), convInsta()" class="select" id="moeda-base"></select>
-                    </div>
-                    
-                    <div class="linha2">
-                        <span></span>   
+            <div class="conversionContainer">
+                <div class="topConversion"> 
+
+                    <div class="inputLabel">
+                        <h2>Você tem: </h2>            
+                        <input id="quantidade" class="input" oninput="convInsta()" type="number" value="0.00">
                     </div>
 
+                    <div class="opcoes">
+                        <div class="resposta">
+                            <img class="flag" id="flaginp" src="https://flagsapi.com/BR/flat/64.png">
+                            <select onclick="changeF('flaginp'), convInsta()" class="select" id="moeda-base"></select>
+                        </div>
+                    </div>
                 </div>
-                <div class="taxas" id="timer">Taxas de conversão serão recarregadas em 30s
-                </div>
+                <div class="taxas" id="timer">Taxas de conversão serão recarregadas em 30s</div>
             </div>
-          <img class="botao" onclick="troca()" src="./botao.svg">
-            <div class="saida">
-                <div>
-                    <h2>Você recebe: </h2>
-                    <input id="conversao" class="input" type="number" value="0.00" disabled>
+
+            <img class="botao" onclick="troca()" src="./botao.svg">
+            
+            <div class="conversionContainer">
+                <div class="topConversion">
                     
-                    <div class="linha">
-                        <span></span>
-                    </div>
-                    
-                </div>
-
-                <div class="opcoes">
-                    <div class="resposta">
-                        <img class=flag id="flagresp" src="https://flagsapi.com/US/flat/64.png">
-                        <select onclick="changeF('flagresp'), convInsta()" class="select" id="moeda-conv"></select>
+                    <div class="inputLabel">
+                        <h2>Você recebe: </h2>
+                        <input id="conversao" class="input" type="number" value="0.00" disabled>
                     </div>
 
-                    <div class="linha2">
-                        <span></span>
+                    <div class="opcoes">
+                        <div class="resposta">
+                            <img class=flag id="flagresp" src="https://flagsapi.com/US/flat/64.png">
+                            <select onclick="changeF('flagresp'), convInsta()" class="select" id="moeda-conv"></select>
+                        </div>
                     </div>
-
                 </div>
-                <div class="taxas" id="rates">
-                    <p>1 BRL = 5.61 USD</p>
-                </div>
+                <div class="taxas" id="rates">1 BRL = 0.18 USD</div>
             </div>
 
         </section>
 
+        <button id="fazGraph" onclick="montaGraf()">Montar Grafico</button>
+        
+        <select id="selectGraph">
+            <option value="360" selected>360</option>
+            <option value="90">90</option>
+            <option value="30">30</option>
+            <option value="15">15</option>
+            <option value="7">7</option>
+        </select>
+
         <div id="grafico" class="graph">
 
         </div>
-
-        <!-- <section class="valorizacao">
-            <div>
-                <p id="moedaAtual">BRL/USD</p>
-                <p id="valorAtual">+0.92%</p>
-            </div>
-            <div>
-                <p id="moedaAtual">BRL/USD</p>
-                <p id="valoraAnterior">+0.92%</p>
-            </div>
-            <div>
-                <p id="moedaAtual">BRL/USD</p>
-                <p id="valoraAnterior1">+0.92%</p>
-            </div>
-            <div>
-                <p id="moedaAtual">BRL/USD</p>
-                <p id="valoraAnterior2">+0.92%</p>
-            </div>
-            <div>
-                <p id="moedaAtual">BRL/USD</p>
-                <p id="valoraAnterior3">+0.92%</p>
-            </div>
-            <div>
-                <p id="moedaAtual">BRL/USD</p>
-                <p id="valoraAnterior4">+0.92%</p>
-            </div>
-            <div>
-                <p id="moedaAtual">BRL/USD</p>
-                <p id="valoraAnterior5">+0.92%</p>
-            </div>
-            <div>
-                <p id="moedaAtual">BRL/USD</p>
-                <p id="valoraAnterior6">+0.92%</p>
-            </div>
-            <div>
-                <p id="moedaAtual">BRL/USD</p>
-                <p id="valoraAnterior7">+0.92%</p>
-            </div>
-        </section> -->
     </section>
 
     <script src="arrayMoedas.js"></script>
     <script src="scriptNovaApi.js"></script>
 
 </body>
-
 </html>

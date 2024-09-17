@@ -1,16 +1,17 @@
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Helvetica, Arial, sans-serif;
 }
 
 body{
     background: radial-gradient(circle, rgba(67,17,74,1) 0%, rgba(113,53,120,1) 100%);
     height: 100%;
     background-image: url(MacBook\ Pro\ 16_\ -\ 1bg.svg);
-    background-size: cover;    
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -29,18 +30,18 @@ body{
 
 header{ 
     width: 100%;
-    height: 10%;
-    box-sizing: border-box;
+    height: 12%;
     display: grid;
     align-items: center;
-    padding: 1% 7%;
+    padding: 1% 7% 2%;
 }
 
 .cabecalho{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 20px;
+    font-size: 1.2rem;
     color: white;
 }
 
@@ -50,7 +51,6 @@ header{
 }
 
  .pucrs{
-    margin-top: 2%;
     box-sizing: border-box;
     max-width: 15%;
     height: 100%;
@@ -60,9 +60,9 @@ header{
     width: 100%;
     height: 28%;
     display: grid;
-    grid-template-columns: 1fr 200px;
+    grid-template-columns: 1fr 10rem;
     align-items: center;
-    padding: 6% 7%;
+    padding: 0 7% 3%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
 }
@@ -74,7 +74,7 @@ header{
 }
 
 .info{
-    text-align: left;
+    text-align: right;
     font-size: 18px;
     color: white;
 }
@@ -83,13 +83,10 @@ header{
     background-color: white;
     width: 86%;
     height: 30%;
-    margin: 4% 7%;
-    display: grid;
-    grid-template-columns: 45% 12% 45%; 
-    padding: 2% 0;
-    justify-content:space-evenly;
-    line-height: 250%;
-    box-sizing: border-box;
+    margin: 0% 7% 6%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
     box-shadow: 2px 2px 2px #4e377ae7;
 }
 
@@ -120,17 +117,19 @@ botao:active{
     
 } 
 
-.entrada{
-    display: grid;
-    grid-template-columns: 1fr 35%;
-    padding:0 8%;
-    
+.conversionContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
 }
 
-.saida{
-    display: grid;
-    grid-template-columns: 1fr 35%;
-    padding: 0 8% ;
+.topConversion {
+    display: flex;
+    align-items: flex-end;
+    
 }
 
 h2{
@@ -141,11 +140,13 @@ h2{
 .input{
     width: 90%;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
     background-color: white;
     outline: none;
+    padding-top: 5%;
+    border-bottom: 1px solid gray;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -173,57 +174,60 @@ input[type=number] {
     height: 1px;
 }
 
-.opcoes{
-    display: grid;
-    align-items: end;
-}
 
 .resposta{
-    margin-top: 31%;
-    display: flex;
-    flex-wrap: wrap;
-    gap:10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 .flag{
-    height: 3rem;
-    border: 1px solid black;
-}
+    height: 2.5rem;
+    border-bottom: 1px solid gray;
+}   
 
 .select{
     background-color: white;
-    font-size: 1.3rem;/* 25px; */
-    max-width: 100%;
+    font-size: 1.3rem;
+    max-width: 80%;
     border: none;
+    border-bottom: 1px solid gray;
 }
 
 .taxas{
+    padding-top: 10%;
     font-size: 14px;
-    padding: 11% 0;
 }
 
 .valorizacao{
     width: 100%;
     display: flex;
     padding: 1% 7%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     color: white;
 }
 
 #grafico {
     background-color: none;
-    margin: -3% auto auto;
+    margin: 2% auto auto;
     width: 86%;
     height: 20%;
     border: 1px hidden white;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: repeat(7, 10%);
+    grid-template-columns: repeat(360, 0.2778%);
     transform: scaleY(-1);
-    /* grid-template-columns: repeat(360, 0.2778%); */
 }
 .barra{
-    /* height: 100%; */
     width: 100%;
     background-color: #FFD65B;
+}
 
+#timer {
+    width: 100%;
+    text-align: left;
+}
+
+#selectGraph {
+    cursor: pointer;
+    width: 5%;
+    height: 5%;
 }
