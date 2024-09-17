@@ -218,6 +218,7 @@ input[type=number] {
     border-radius: 5px;
     display: grid;
     grid-template-columns: repeat(7, 10%);
+    transform: scaleY(-1);
     /* grid-template-columns: repeat(360, 0.2778%); */
 }
 .barra{

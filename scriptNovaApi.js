@@ -36,6 +36,7 @@ async function montaGraf(moedab, moeda2, duracao){
     const arr = new Array(duracao);
     const percent = 100/duracao;
     grafico.style.gridTemplateColumns = `repeat(${duracao}, ${percent.toFixed(4)-0.0001}%)`;
+    let maior = 0;
 
     try {
         const resposta = await fetch("https://economia.awesomeapi.com.br/json/daily/"+`${moedab}-${moeda2}/${duracao}`);
@@ -49,19 +50,23 @@ async function montaGraf(moedab, moeda2, duracao){
         }
         let index = arr.length-1;
         let temMaior = false;
-        let soma = 0;
         dados.forEach((dia) => {
             const bid = dia.bid;
             if(bid>0){
                 arr[index]=bid*100;
             }
-            soma+=arr[index];
+            if(arr[index]>maior){
+                maior = arr[index];
+            }
             index--;
         })
         console.log(arr);
         let count = 0;
         
         grafico.innerHTML = '';
+        for(i=0;i<arr.length;i++){
+            arr[i] = (arr[i]*100)/maior;
+        }
         for(i=0;i<arr.length;i++){
             
             const barra = document.createElement("div");
