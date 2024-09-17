@@ -18,20 +18,6 @@ function dataHora(){
 setInterval(dataHora, 1000);
 
 async function montaGraf(){
-    /* const date = new Date();
-    const dia = date.getDate(); 
-    const mes = date.getMonth()+1;
-    const ano = date.getFullYear();
-    const anoAnt = ano-1;
-    console.log(dia);
-    console.log(mes);
-    console.log(ano);
-    console.log(anoAnt);
-
-    let nDias = 365;
-    if((parseInt(ano)%100==0&&parseInt(ano)%400==0)||(parseInt(anoAnt)%100==0&&parseInt(anoAnt)%400==0&&mes<=2)){
-        nDias=366;
-    } */
 
     const moedab = base.value;
     const moeda2 = conv.value;
@@ -41,6 +27,19 @@ async function montaGraf(){
     const arr = new Array(duracao);
     const percent = 100/duracao;
     grafico.style.gridTemplateColumns = `repeat(${duracao}, ${percent.toFixed(4)-0.0001}%)`;
+
+    if(duracao!=7&&duracao!=15){
+        grafico.style.gridTemplateColumns = `repeat(${duracao}, ${percent.toFixed(4)-0.0001}%)`;
+        grafico.style.gap = 0;
+    } else {
+        grafico.style.gridTemplateColumns = `repeat(${duracao}, ${(percent.toFixed(4)/3)*2}%)`;
+        grafico.style.gap = `${percent.toFixed(4)/3}%`;
+    }
+
+//Adiciona gap entre as divs do grafico quando em 15 ou 7 dias;
+
+
+    
     let maior = 0;
 
     try {
@@ -85,16 +84,15 @@ async function montaGraf(){
         console.log('erro de conexao: '+error);
     }
 
-
-    /* for(i=0;i<nDias;i++){
-        const barra = document.createElement("div");
-        barra.className = "barra";
-        barra.style.height = `10%`;
-        grafico.appendChild(barra);
-    } */
 }
 
-
+function restrict(tis) {
+  var prev = tis.getAttribute("data-prev");
+  prev = (prev != '') ? prev : '';
+  if (Math.round(tis.value*100)/100!=tis.value)
+  tis.value=prev;
+  tis.setAttribute("data-prev",tis.value)
+}
 
 moedas.forEach((moeda)=>{
     const escolha = document.createElement("option");
@@ -179,9 +177,9 @@ async function teste(coin, coin2, quantia) {
 function converter(){
     if(quantidade.value <0){
         quantidade.value = 0;
-        quantidade.value = truncar2pos(Number(quantidade.value));
+        //quantidade.value = truncar2pos(Number(quantidade.value));
     } else {
-        quantidade.value = truncar2pos(Number(quantidade.value));
+        //quantidade.value = truncar2pos(Number(quantidade.value));
     }
     
     const baseNum = base.value;
