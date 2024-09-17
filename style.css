@@ -6,25 +6,28 @@
 
 body{
     background: radial-gradient(circle, rgba(67,17,74,1) 0%, rgba(113,53,120,1) 100%);
-    height: 100%;
+    height: 100vh;
     background-image: url(MacBook\ Pro\ 16_\ -\ 1bg.svg);
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    overflow: hidden;
 }
 
 
 .box{
     background-color: #986ee7e7;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    position: absolute;
     width: 85%;
     height: 85%;
     box-sizing: border-box;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -58,11 +61,11 @@ header{
 
 .escritas{
     width: 100%;
-    height: 28%;
+    height: 25%;
     display: grid;
     grid-template-columns: 1fr 10rem;
     align-items: center;
-    padding: 0 7% 3%;
+    padding: 0 7% 1.5%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
 }
@@ -83,7 +86,7 @@ header{
     background-color: white;
     width: 86%;
     height: 30%;
-    margin: 0% 7% 6%;
+    margin: 3% 7% 0;
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -120,7 +123,7 @@ botao:active{
 .conversionContainer{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     height: 100%;
     width: 100%;
     padding: 2rem;
@@ -129,7 +132,6 @@ botao:active{
 .topConversion {
     display: flex;
     align-items: flex-end;
-    
 }
 
 h2{
@@ -186,8 +188,8 @@ input[type=number] {
 
 .select{
     background-color: white;
-    font-size: 1.3rem;
-    max-width: 80%;
+    font-size: 1.1rem;
+    max-width: 100%;
     border: none;
     border-bottom: 1px solid gray;
 }
@@ -209,7 +211,7 @@ input[type=number] {
     background-color: none;
     margin: 2% auto auto;
     width: 86%;
-    height: 20%;
+    height: 60%;
     border: 1px hidden white;
     border-radius: 5px;
     display: grid;
@@ -217,6 +219,7 @@ input[type=number] {
     transform: scaleY(-1);
 }
 .barra{
+    height: 100%;
     width: 100%;
     background-color: #FFD65B;
 }
@@ -228,6 +231,38 @@ input[type=number] {
 
 #selectGraph {
     cursor: pointer;
-    width: 5%;
-    height: 5%;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+.bottomContainer{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    padding: 0 7%;
+    gap: 2rem;
+}
+
+.botoesGrafico{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0;
+    width: 12%;
+    height: 35%;
+    gap: 1rem;
+}
+
+.botaoGraph{
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: white;
+}
+.graph{
+    height: 100%;
+    margin: 0 !important;
+    justify-content: end;
 }
