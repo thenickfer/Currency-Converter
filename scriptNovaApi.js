@@ -123,10 +123,17 @@ function changeF(inp){
     }
     
     const novaBand = string.substring(0, 2);
-    const novoSrc = `https://flagsapi.com/${novaBand}/flat/64.png`
-    document.getElementById(inp).src = novoSrc;
-}
 
+    if(novaBand=="EU"){
+        const novoSrc = `./Flag_of_Europe.svg.png`;
+        document.getElementById(inp).src = novoSrc;
+        document.getElementById(inp).style.height = "1.8rem";
+    } else {
+        const novoSrc = `https://flagsapi.com/${novaBand}/flat/64.png`
+        document.getElementById(inp).src = novoSrc;
+        document.getElementById(inp).style.height = "2.5rem";
+    }
+}
 let counttimer = 30;
 
 function countdown(){
@@ -222,9 +229,12 @@ function troca(){
     base.value = conv.value;
     conv.value = aux;
 
-    aux = document.getElementById('flaginp').src;
+    changeF("flaginp");
+    changeF("flagresp");
+
+    /* aux = document.getElementById('flaginp').src;
     document.getElementById('flaginp').src = document.getElementById('flagresp').src;
-    document.getElementById('flagresp').src = aux;
+    document.getElementById('flagresp').src = aux; */
 
     converter();
 }
