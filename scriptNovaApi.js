@@ -111,7 +111,7 @@ moedas.forEach((moeda)=>{
     conv.value = 'USD';
 })
 
-setInterval(countdown, 1000);
+//setInterval(countdown, 1000);
 
 
 function changeF(inp){
