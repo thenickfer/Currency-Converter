@@ -125,7 +125,7 @@ function changeF(inp){
     const novaBand = string.substring(0, 2);
 
     if(novaBand=="EU"){
-        const novoSrc = `./Flag_of_Europe.svg.png`;
+        const novoSrc = `./Images/Flag_of_Europe.svg.png`;
         document.getElementById(inp).src = novoSrc;
         document.getElementById(inp).style.height = "1.8rem";
     } else {
@@ -205,9 +205,9 @@ function truncar2pos(x){
 function convInsta(){
     if(quantidade.value<0){
         quantidade.value = 0;
-    } else if(truncar2pos(Number(quantidade.value))<Number(quantidade.value).toFixed(3)) {
-        //quantidade.value = truncar2pos(Number(quantidade.value));
-    } 
+    } /* else if(truncar2pos(Number(quantidade.value))<Number(quantidade.value).toFixed(3)) {
+        quantidade.value = truncar2pos(Number(quantidade.value));
+    }  */
 
     const baseNum = base.value;
     const convNum = conv.value;
