@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversora de moedas</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <section class="box">
         <header class="cabecalho">
-            <div class="nome"><p>Grupo de Estudos - AGES</p></div>
-            <img class=pucrs src="./Images/45121ad6-5ded-4766-bf78-485c7352ae12.png" alt="Logo PUCRS"></div>
+            <div class="nome">
+                <p>Grupo de Estudos - AGES</p>
+            </div>
+            <a href="https://portal.pucrs.br/ensino-e-pesquisa/" target="_blank">
+                <img class=pucrs src="./Images/45121ad6-5ded-4766-bf78-485c7352ae12.png" alt="Logo PUCRS">
+            </a>
+            </div>
         </header>
 
         <section class="escritas">
@@ -24,11 +31,12 @@
         <section class="conversor">
 
             <div class="conversionContainer">
-                <div class="topConversion"> 
+                <div class="topConversion">
 
                     <div class="inputLabel">
-                        <h2>Você tem: </h2>            
-                        <input id="quantidade" class="input" oninput="restrict(this), convInsta()" type="number" value="">
+                        <h2>Você tem: </h2>
+                        <input id="quantidade" class="input" oninput="restrict(this), convInsta()" type="number"
+                            value="">
                     </div>
 
                     <div class="opcoes">
@@ -42,10 +50,10 @@
             </div>
 
             <img class="botao" onclick="troca()" src="./Images/botao.svg">
-            
+
             <div class="conversionContainer">
                 <div class="topConversion">
-                    
+
                     <div class="inputLabel">
                         <h2>Você recebe: </h2>
                         <input id="conversao" class="input" type="number" value="0.00" disabled>
@@ -73,7 +81,7 @@
                     <option value="7">7 dias</option>
                 </select>
             </div>
-    
+
             <div id="grafico" class="graph"></div>
 
         </div>
@@ -83,4 +91,5 @@
     <script src="scriptNovaApi.js"></script>
 
 </body>
+
 </html>
